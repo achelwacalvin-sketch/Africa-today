@@ -4,22 +4,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Africa Today | African News & Stories</title>
+    <title>Africa Today | News Across Africa</title>
 
     <meta name="description"
-          content="Africa Today — news, sports, business, technology and stories from across Africa.">
+          content="Africa Today — breaking news, Kenya news, African news, sports, business and technology.">
 
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <!-- HEADER -->
+    <!-- TOP HEADER -->
     <header class="site-header">
 
-        <div class="logo">
-            <span class="logo-icon">🌍</span>
-            <span class="logo-text">AFRICA <strong>TODAY</strong></span>
+        <div class="top-bar">
+
+            <button class="menu-btn" onclick="toggleMenu()">
+                ☰
+            </button>
+
+            <a class="logo" href="index.html">
+                <span class="logo-globe">🌍</span>
+                <span>
+                    AFRICA
+                    <strong>TODAY</strong>
+                </span>
+            </a>
+
+            <button class="dark-btn" onclick="toggleDarkMode()">
+                🌙
+            </button>
+
         </div>
 
         <p class="tagline">
@@ -30,7 +45,7 @@
 
 
     <!-- NAVIGATION -->
-    <nav class="navbar">
+    <nav class="navbar" id="mainNav">
 
         <a href="index.html">Home</a>
         <a href="#kenya">Kenya</a>
@@ -38,74 +53,133 @@
         <a href="#sports">Sports</a>
         <a href="#business">Business</a>
         <a href="#technology">Technology</a>
+        <a href="#culture">Culture</a>
 
     </nav>
 
 
-    <!-- MAIN CONTENT -->
+    <!-- SEARCH -->
+    <section class="search-area">
+
+        <div class="search-box">
+
+            <input
+                type="search"
+                id="searchInput"
+                placeholder="Search Africa Today..."
+                onkeyup="searchNews()"
+            >
+
+            <button onclick="searchNews()">
+                🔎 Search
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- BREAKING NEWS -->
+    <section class="breaking-news">
+
+        <div class="breaking-label">
+            🔴 BREAKING
+        </div>
+
+        <div id="breakingText">
+            Welcome to Africa Today — bringing you stories from across Africa.
+        </div>
+
+    </section>
+
+
     <main>
 
-        <!-- HERO -->
-        <section class="hero">
 
-            <div class="hero-content">
+        <!-- HERO / FEATURED STORY -->
+        <section class="featured-section">
 
-                <span class="breaking-label">
-                    LATEST
-                </span>
+            <div class="section-title">
+
+                <span>FEATURED</span>
 
                 <h1>
-                    Welcome to Africa Today
+                    Africa Today
                 </h1>
 
-                <p>
-                    Discover the latest news, stories and developments
-                    shaping Africa.
-                </p>
+            </div>
 
-                <button onclick="exploreNews()">
-                    Explore Latest News
+
+            <article class="featured-card">
+
+                <div class="featured-image">
+                    🌍
+                </div>
+
+                <div class="featured-content">
+
+                    <span class="category">
+                        AFRICA
+                    </span>
+
+                    <h2>
+                        The stories shaping Africa today
+                    </h2>
+
+                    <p>
+                        Follow important developments, people,
+                        ideas and events from Kenya and across
+                        the African continent.
+                    </p>
+
+                    <div class="article-meta">
+                        <span>📅 September 10, 2026</span>
+                        <span>🌍 Africa Today</span>
+                    </div>
+
+                    <button onclick="openStory('featured')">
+                        Read Full Story →
+                    </button>
+
+                </div>
+
+            </article>
+
+        </section>
+
+
+        <!-- LATEST NEWS -->
+        <section class="news-section">
+
+            <div class="section-heading">
+
+                <div>
+                    <span>LATEST</span>
+                    <h2>Latest News</h2>
+                </div>
+
+                <button onclick="showAllNews()">
+                    View All →
                 </button>
 
             </div>
 
-        </section>
+
+            <div class="news-grid" id="newsGrid">
 
 
-        <!-- BREAKING NEWS -->
-        <section class="breaking-news">
+                <!-- NEWS 1 -->
+                <article
+                    class="news-card"
+                    data-title="Kenya developments"
+                    data-category="kenya"
+                >
 
-            <div class="breaking-title">
-                BREAKING NEWS
-            </div>
-
-            <div class="breaking-text" id="breakingText">
-                Stay updated with the latest stories from across Africa.
-            </div>
-
-        </section>
-
-
-        <!-- LATEST STORIES -->
-        <section class="section">
-
-            <div class="section-heading">
-                <h2>Latest Stories</h2>
-                <span>Explore the continent</span>
-            </div>
-
-
-            <div class="news-grid">
-
-
-                <!-- KENYA -->
-                <article class="news-card" id="kenya">
-
-                    <div class="card-image kenya-image">
+                    <div class="news-image kenya">
                         🇰🇪
                     </div>
 
-                    <div class="card-content">
+                    <div class="news-content">
 
                         <span class="category">
                             KENYA
@@ -116,11 +190,16 @@
                         </h3>
 
                         <p>
-                            Follow important developments,
-                            stories and events happening across Kenya.
+                            Important developments and stories
+                            from Kenya.
                         </p>
 
-                        <button onclick="readArticle('Kenya')">
+                        <div class="article-meta">
+                            <span>📅 Today</span>
+                            <span>📰 News</span>
+                        </div>
+
+                        <button onclick="openStory('kenya')">
                             Read More →
                         </button>
 
@@ -129,14 +208,18 @@
                 </article>
 
 
-                <!-- AFRICA -->
-                <article class="news-card" id="africa">
+                <!-- NEWS 2 -->
+                <article
+                    class="news-card"
+                    data-title="Africa news"
+                    data-category="africa"
+                >
 
-                    <div class="card-image africa-image">
+                    <div class="news-image africa">
                         🌍
                     </div>
 
-                    <div class="card-content">
+                    <div class="news-content">
 
                         <span class="category">
                             AFRICA
@@ -147,11 +230,16 @@
                         </h3>
 
                         <p>
-                            Explore major stories and developments
-                            from countries across the African continent.
+                            Major stories and developments
+                            from across Africa.
                         </p>
 
-                        <button onclick="readArticle('Africa')">
+                        <div class="article-meta">
+                            <span>📅 Today</span>
+                            <span>📰 News</span>
+                        </div>
+
+                        <button onclick="openStory('africa')">
                             Read More →
                         </button>
 
@@ -160,14 +248,18 @@
                 </article>
 
 
-                <!-- SPORTS -->
-                <article class="news-card" id="sports">
+                <!-- NEWS 3 -->
+                <article
+                    class="news-card"
+                    data-title="African sports"
+                    data-category="sports"
+                >
 
-                    <div class="card-image sports-image">
+                    <div class="news-image sports">
                         🏀
                     </div>
 
-                    <div class="card-content">
+                    <div class="news-content">
 
                         <span class="category">
                             SPORTS
@@ -178,11 +270,16 @@
                         </h3>
 
                         <p>
-                            Get the latest sports stories,
-                            results and updates from Africa.
+                            Sports stories, results and updates
+                            from African athletes and teams.
                         </p>
 
-                        <button onclick="readArticle('Sports')">
+                        <div class="article-meta">
+                            <span>📅 Today</span>
+                            <span>🏆 Sports</span>
+                        </div>
+
+                        <button onclick="openStory('sports')">
                             Read More →
                         </button>
 
@@ -191,14 +288,18 @@
                 </article>
 
 
-                <!-- BUSINESS -->
-                <article class="news-card" id="business">
+                <!-- NEWS 4 -->
+                <article
+                    class="news-card"
+                    data-title="African business"
+                    data-category="business"
+                >
 
-                    <div class="card-image business-image">
+                    <div class="news-image business">
                         💼
                     </div>
 
-                    <div class="card-content">
+                    <div class="news-content">
 
                         <span class="category">
                             BUSINESS
@@ -209,11 +310,16 @@
                         </h3>
 
                         <p>
-                            Discover business, markets, entrepreneurship
-                            and economic developments across Africa.
+                            Markets, companies, entrepreneurship
+                            and economic developments.
                         </p>
 
-                        <button onclick="readArticle('Business')">
+                        <div class="article-meta">
+                            <span>📅 Today</span>
+                            <span>💰 Business</span>
+                        </div>
+
+                        <button onclick="openStory('business')">
                             Read More →
                         </button>
 
@@ -222,14 +328,18 @@
                 </article>
 
 
-                <!-- TECHNOLOGY -->
-                <article class="news-card" id="technology">
+                <!-- NEWS 5 -->
+                <article
+                    class="news-card"
+                    data-title="African technology"
+                    data-category="technology"
+                >
 
-                    <div class="card-image technology-image">
+                    <div class="news-image technology">
                         💻
                     </div>
 
-                    <div class="card-content">
+                    <div class="news-content">
 
                         <span class="category">
                             TECHNOLOGY
@@ -240,11 +350,16 @@
                         </h3>
 
                         <p>
-                            Discover technology, innovation,
-                            startups and digital transformation.
+                            Technology, innovation, startups
+                            and digital transformation.
                         </p>
 
-                        <button onclick="readArticle('Technology')">
+                        <div class="article-meta">
+                            <span>📅 Today</span>
+                            <span>💻 Technology</span>
+                        </div>
+
+                        <button onclick="openStory('technology')">
                             Read More →
                         </button>
 
@@ -253,14 +368,18 @@
                 </article>
 
 
-                <!-- CULTURE -->
-                <article class="news-card">
+                <!-- NEWS 6 -->
+                <article
+                    class="news-card"
+                    data-title="African culture"
+                    data-category="culture"
+                >
 
-                    <div class="card-image culture-image">
+                    <div class="news-image culture">
                         🎭
                     </div>
 
-                    <div class="card-content">
+                    <div class="news-content">
 
                         <span class="category">
                             CULTURE
@@ -271,17 +390,149 @@
                         </h3>
 
                         <p>
-                            Stories celebrating Africa's people,
-                            culture, history and creativity.
+                            People, culture, entertainment,
+                            history and creativity.
                         </p>
 
-                        <button onclick="readArticle('Culture')">
+                        <div class="article-meta">
+                            <span>📅 Today</span>
+                            <span>🎭 Culture</span>
+                        </div>
+
+                        <button onclick="openStory('culture')">
                             Read More →
                         </button>
 
                     </div>
 
                 </article>
+
+            </div>
+
+            <p id="noResults" class="no-results">
+                No stories found.
+            </p>
+
+        </section>
+
+
+        <!-- VIDEO SECTION -->
+        <section class="video-section">
+
+            <div class="section-heading">
+
+                <div>
+                    <span>WATCH</span>
+                    <h2>Latest Videos</h2>
+                </div>
+
+            </div>
+
+
+            <div class="video-grid">
+
+                <article class="video-card">
+
+                    <div class="video-placeholder">
+
+                        <span>▶</span>
+
+                    </div>
+
+                    <div class="video-content">
+
+                        <span class="category">
+                            AFRICA TODAY VIDEO
+                        </span>
+
+                        <h3>
+                            Africa Today Video
+                        </h3>
+
+                        <p>
+                            Video stories and reports from across Africa.
+                        </p>
+
+                        <button onclick="playVideo()">
+                            ▶ Watch Video
+                        </button>
+
+                    </div>
+
+                </article>
+
+
+                <article class="video-card">
+
+                    <div class="video-placeholder second-video">
+
+                        <span>▶</span>
+
+                    </div>
+
+                    <div class="video-content">
+
+                        <span class="category">
+                            NEWS
+                        </span>
+
+                        <h3>
+                            News & Updates
+                        </h3>
+
+                        <p>
+                            Stay informed through video reports.
+                        </p>
+
+                        <button onclick="playVideo()">
+                            ▶ Watch Video
+                        </button>
+
+                    </div>
+
+                </article>
+
+            </div>
+
+        </section>
+
+
+        <!-- CATEGORY SECTION -->
+        <section class="categories">
+
+            <h2>
+                Explore Africa
+            </h2>
+
+            <div class="category-buttons">
+
+                <button onclick="filterCategory('kenya')">
+                    🇰🇪 Kenya
+                </button>
+
+                <button onclick="filterCategory('africa')">
+                    🌍 Africa
+                </button>
+
+                <button onclick="filterCategory('sports')">
+                    🏀 Sports
+                </button>
+
+                <button onclick="filterCategory('business')">
+                    💼 Business
+                </button>
+
+                <button onclick="filterCategory('technology')">
+                    💻 Technology
+                </button>
+
+                <button onclick="filterCategory('culture')">
+                    🎭 Culture
+                </button>
+
+                <button onclick="showAllNews()">
+                    📰 All News
+                </button>
 
             </div>
 
@@ -296,14 +547,25 @@
             </h2>
 
             <p>
-                Follow Africa Today for the latest stories.
+                Get the latest African stories and updates.
             </p>
 
-            <button onclick="subscribe()">
-                Subscribe
-            </button>
+            <div class="subscribe-box">
+
+                <input
+                    type="email"
+                    id="emailInput"
+                    placeholder="Enter your email"
+                >
+
+                <button onclick="subscribe()">
+                    Subscribe
+                </button>
+
+            </div>
 
         </section>
+
 
     </main>
 
@@ -319,6 +581,16 @@
             Africa's stories. Africa's voice.
         </p>
 
+        <div class="footer-links">
+
+            <a href="index.html">Home</a>
+            <a href="#kenya">Kenya</a>
+            <a href="#africa">Africa</a>
+            <a href="#sports">Sports</a>
+            <a href="#business">Business</a>
+
+        </div>
+
         <p class="copyright">
             © 2026 Africa Today. All rights reserved.
         </p>
@@ -330,4 +602,4 @@
     <script src="script.js"></script>
 
 </body>
-                            </html>
+                </html>
