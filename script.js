@@ -156,7 +156,7 @@ function openStory(slug) {
         kenya: "articles/kenya-developments.html",
         africa: "articles/africa-news.html",
         sports: "articles/sports-news.html",
-        business: "articles/business-news.html",
+        business: "articles/transnet-profit.html",
         technology: "articles/technology-news.html",
         culture: "articles/culture-news.html"
     };
