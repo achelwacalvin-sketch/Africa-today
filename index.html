@@ -1,1 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Africa Today</title>
+    <link rel="stylesheet" href="style.css">
+</head>
 
+<body>
+
+    <header>
+        <h1>🌍 Africa Today</h1>
+        <p>News, stories and developments from across Africa</p>
+    </header>
+
+    <nav>
+        <a href="#">Home</a>
+        <a href="#">Kenya</a>
+        <a href="#">Africa</a>
+        <a href="#">Sports</a>
+        <a href="#">Business</a>
+        <a href="#">Technology</a>
+    </nav>
+
+    <main>
+
+        <section class="hero">
+            <h2>Welcome to Africa Today</h2>
+            <p>Stay informed about what's happening across the continent.</p>
+            <button onclick="showMessage()">Explore Latest News</button>
+        </section>
+
+        <section class="news">
+            <h2>Latest Stories</h2>
+
+            <article>
+                <h3>Kenya Developments</h3>
+                <p>Discover the latest developments and important stories from Kenya.</p>
+                <button onclick="readArticle('Kenya')">Read More</button>
+            </article>
+
+            <article>
+                <h3>Africa News</h3>
+                <p>Explore major stories and developments from across Africa.</p>
+                <button onclick="readArticle('Africa')">Read More</button>
+            </article>
+
+            <article>
+                <h3>Sports</h3>
+                <p>Get the latest sports stories from African teams and athletes.</p>
+                <button onclick="readArticle('Sports')">Read More</button>
+            </article>
+
+        </section>
+
+    </main>
+
+    <footer>
+        <p>© 2026 Africa Today. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+
+</body>
+  </html>
