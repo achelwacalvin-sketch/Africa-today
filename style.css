@@ -1,1 +1,396 @@
+/* ==============================
+   AFRICA TODAY
+   Main Website Styles
+   ============================== */
 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f5f7f6;
+    color: #17221d;
+    line-height: 1.6;
+}
+
+
+/* ==============================
+   HEADER
+   ============================== */
+
+.site-header {
+    background: #0b5d3b;
+    color: white;
+    padding: 25px 20px;
+    text-align: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.logo-icon {
+    font-size: 42px;
+}
+
+.logo-text {
+    font-size: 30px;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+.logo-text strong {
+    color: #f4c542;
+}
+
+.tagline {
+    margin-top: 5px;
+    font-size: 15px;
+    opacity: 0.9;
+}
+
+
+/* ==============================
+   NAVIGATION
+   ============================== */
+
+.navbar {
+    background: #063d29;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 5px;
+    padding: 10px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.navbar a:hover {
+    background: #f4c542;
+    color: #063d29;
+}
+
+
+/* ==============================
+   HERO
+   ============================== */
+
+.hero {
+    min-height: 400px;
+    background:
+        linear-gradient(
+            rgba(0, 60, 38, 0.75),
+            rgba(0, 60, 38, 0.75)
+        ),
+        linear-gradient(135deg, #0b5d3b, #d49b18);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 40px 20px;
+    color: white;
+}
+
+.hero-content {
+    max-width: 750px;
+}
+
+.breaking-label {
+    display: inline-block;
+    background: #e63946;
+    padding: 6px 14px;
+    border-radius: 4px;
+    font-size: 13px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.hero h1 {
+    font-size: clamp(38px, 7vw, 65px);
+    line-height: 1.1;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 20px;
+    margin-bottom: 25px;
+}
+
+.hero button,
+.news-card button,
+.newsletter button {
+    border: none;
+    background: #f4c542;
+    color: #063d29;
+    padding: 12px 22px;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.hero button:hover,
+.news-card button:hover,
+.newsletter button:hover {
+    transform: translateY(-2px);
+    opacity: 0.9;
+}
+
+
+/* ==============================
+   BREAKING NEWS
+   ============================== */
+
+.breaking-news {
+    display: flex;
+    align-items: center;
+    background: white;
+    border-bottom: 1px solid #ddd;
+    min-height: 55px;
+}
+
+.breaking-title {
+    background: #e63946;
+    color: white;
+    padding: 15px 20px;
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+.breaking-text {
+    padding: 10px 20px;
+}
+
+
+/* ==============================
+   SECTIONS
+   ============================== */
+
+.section {
+    max-width: 1200px;
+    margin: auto;
+    padding: 60px 20px;
+}
+
+.section-heading {
+    margin-bottom: 30px;
+    border-left: 6px solid #f4c542;
+    padding-left: 15px;
+}
+
+.section-heading h2 {
+    font-size: 32px;
+    color: #0b5d3b;
+}
+
+.section-heading span {
+    color: #66736d;
+}
+
+
+/* ==============================
+   NEWS CARDS
+   ============================== */
+
+.news-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.news-card {
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    transition: 0.3s;
+}
+
+.news-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+}
+
+.card-image {
+    height: 170px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 70px;
+}
+
+.kenya-image {
+    background: #e8f5ed;
+}
+
+.africa-image {
+    background: #fff4d6;
+}
+
+.sports-image {
+    background: #e8eef8;
+}
+
+.business-image {
+    background: #eee8f8;
+}
+
+.technology-image {
+    background: #e5f4f5;
+}
+
+.culture-image {
+    background: #f8e9e2;
+}
+
+.card-content {
+    padding: 22px;
+}
+
+.category {
+    color: #0b5d3b;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.card-content h3 {
+    font-size: 23px;
+    margin: 7px 0;
+}
+
+.card-content p {
+    color: #66736d;
+    margin-bottom: 18px;
+}
+
+.news-card button {
+    padding: 9px 15px;
+    font-size: 14px;
+}
+
+
+/* ==============================
+   NEWSLETTER
+   ============================== */
+
+.newsletter {
+    text-align: center;
+    background: #0b5d3b;
+    color: white;
+    padding: 55px 20px;
+}
+
+.newsletter h2 {
+    font-size: 32px;
+    margin-bottom: 10px;
+}
+
+.newsletter p {
+    margin-bottom: 20px;
+}
+
+.newsletter button {
+    background: #f4c542;
+}
+
+
+/* ==============================
+   FOOTER
+   ============================== */
+
+footer {
+    background: #063d29;
+    color: white;
+    text-align: center;
+    padding: 35px 20px;
+}
+
+.footer-logo {
+    font-size: 22px;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+.copyright {
+    margin-top: 15px;
+    font-size: 13px;
+    opacity: 0.7;
+}
+
+
+/* ==============================
+   MOBILE
+   ============================== */
+
+@media (max-width: 800px) {
+
+    .news-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .navbar {
+        justify-content: flex-start;
+        overflow-x: auto;
+        flex-wrap: nowrap;
+    }
+
+    .navbar a {
+        white-space: nowrap;
+    }
+}
+
+
+@media (max-width: 550px) {
+
+    .logo-text {
+        font-size: 23px;
+    }
+
+    .logo-icon {
+        font-size: 32px;
+    }
+
+    .hero {
+        min-height: 350px;
+    }
+
+    .hero p {
+        font-size: 17px;
+    }
+
+    .news-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .breaking-news {
+        display: block;
+    }
+
+    .breaking-title {
+        text-align: center;
+    }
+
+  }
